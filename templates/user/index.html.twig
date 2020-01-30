@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+    {% if users is empty %}
+        <h3 class="title text-center mt-5">Pas de wildArtist enregistré</h3>
+    {% endif %}
+        <div class="container-fluid">
+            <div class="row justify-content-around">
+                {% for user in users %}
+
+                    <div class="card  col-xl-5 col-md-6 mb-5 mt-5 mr-3 ml-3 p-3 ">
+                        <div class="card-body p-auto">
+                            <div class="card-header border-0">
+                                {% if user.avatar is defined %}<div class="text-center">
+                                    <img style="max-width: 240px; border: solid; border-radius: 10%; padding: 5px" alt = "logo" src=" {{ user.avatar }}"></div>
+                                {% endif %}
+                            </div>
+                            <p class="typo"><b>Surnom </b>{{user.nickname}}</p>
+                            <p class="typo"><b>Description : </b>{{ user.personaldescription }}</p>
+                            <p class="typo"><b>Email : </b>{{ user.email }}</p>
+                            <p class="typo"><b>Catégorie d'activité : </b>{{ user.categoryactivity }}</p>
+                            <p class="typo"><b>Ma spécialité : </b>{{ user.ownactivity }}</p>
+                            <p class="typo"><b>Description de mon activité :</b>{{ user.descriptionownactivity }}</p>
+                            {% if user.video is null %}{% else %}<iframe width="560" height="315" src="{{user.video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>{% endif %}
+                            </div>
+                        <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-danger">show</button></a>
+                        <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+
+    <a href="{{ path('user_new') }}">Create new</a>
+{% endblock %}

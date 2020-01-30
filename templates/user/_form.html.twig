@@ -1,0 +1,13 @@
+<h1 class="title text-white text-center ">Inscription en tant que WildArtist</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-8  mr-md-5 ml-md-5 mr-sm-2 ml-sm-2">
+            {{ form_start(form) }}
+            <p>Pour créer un avatar suivez le lien  (créez votre avatar sur <a href="https://getavataaars.com/" target="_blank">lien</a>).</p>
+                {{ form_widget(form) }}
+
+                <button class="btn">{{ button_label|default('Save') }}</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
