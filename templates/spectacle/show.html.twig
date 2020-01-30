@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spectacle{% endblock %}
+
+{% block body %}
+    <h1>Spectacle</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ spectacle.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ spectacle.date ? spectacle.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ spectacle.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ spectacle.description }}</td>
+            </tr>
+            <tr>
+                <th>Departement</th>
+                <td>{{ spectacle.departement }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ spectacle.price }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ spectacle.photo }}</td>
+            </tr>
+            <tr>
+                <th>Nbspectator</th>
+                <td>{{ spectacle.nbspectator }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('spectacle_index') }}">back to list</a>
+
+    <a href="{{ path('spectacle_edit', {'id': spectacle.id}) }}">edit</a>
+
+    {{ include('spectacle/_delete_form.html.twig') }}
+{% endblock %}

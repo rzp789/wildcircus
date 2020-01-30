@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Show;
+use App\Entity\Shows;
 use App\Form\ShowType;
 use App\Repository\ShowRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -1,4 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class ="col-12 mt-5" id='warped'>
+            <span class='w0'>B</span><span class='w1'>i</span><span class='w2'>e</span><span class='w3'>n</span><span class='w4'>v</span><span class='w5'>e</span><span class='w6'>n</span><span class='w7'>u</span><span class='w8'>e</span><span class='w9'> </span><span class='w10'>a</span><span class='w11'>u</span><span class='w12'> </span><span class='w13'>w</span><span class='w14'>i</span><span class='w15'>l</span><span class='w16'>d</span><span class='w17'> </span><span class='w18'>C</span><span class='w19'>i</span><span class='w20'>r</span><span class='w21'>c</span><span class='w22'>u</span><span class='w23'>s</span>
+        </div>
 
-<div id='warped'>
-    <span class='w0'>B</span><span class='w1'>i</span><span class='w2'>e</span><span class='w3'>n</span><span class='w4'>v</span><span class='w5'>e</span><span class='w6'>n</span><span class='w7'>u</span><span class='w8'>e</span><span class='w9'> </span><span class='w10'>a</span><span class='w11'>u</span><span class='w12'> </span><span class='w13'>w</span><span class='w14'>i</span><span class='w15'>l</span><span class='w16'>d</span><span class='w17'> </span><span class='w18'>C</span><span class='w19'>i</span><span class='w20'>r</span><span class='w21'>c</span><span class='w22'>u</span><span class='w23'>s</span>
+    </div>
 </div>
+
+
+    <div class="owl-carousel testimonial-carousel">
+        <!--   Start Testimonials -->
+
+        <!--   Testimonial 1 -->
+        <div class="container-fluid">
+            <div class ="col">
+    {% for user in users %}
+        <div class="single-testimonial ">
+            <div class="testimonials-wrapper ">
+                <h4>{{user.personaldescription}}</h4>
+                <div class="testimonials-blob"></div>
+                <div class="testimonials-img"><img src="{{user.avatar}}"></div>
+                <div class="testimonials-person-info mt-0">
+                    <p><b>{{user.nickname}}</b><br />{{user.ownactivity}}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+            </div>
+        </div>
+        <!--   End Testimonials -->
+    </div>
+
+    <script>
+        $(function() {
+            $('.owl-carousel.testimonial-carousel').owlCarousel({
+                nav: true,
+                navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    750: {
+                        items: 2,
+                    }
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

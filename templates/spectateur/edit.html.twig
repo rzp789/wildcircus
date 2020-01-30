@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Spectateur{% endblock %}
+
+{% block body %}
+    <h1>Edit Spectateur</h1>
+
+    {{ include('spectateur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('spectateur_index') }}">back to list</a>
+
+    {{ include('spectateur/_delete_form.html.twig') }}
+{% endblock %}

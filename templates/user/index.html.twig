@@ -26,8 +26,7 @@
                             <p class="typo"><b>Description de mon activité :</b>{{ user.descriptionownactivity }}</p>
                             {% if user.video is null %}{% else %}<iframe width="560" height="315" src="{{user.video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>{% endif %}
                             </div>
-                        <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-danger">show</button></a>
-                        <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                        <a href="{{ path('user_edit', {'id': user.id}) }}"><button class="btn btn-danger">Modifier</button></a>
                     </div>
 
                 {% endfor %}
@@ -37,5 +36,5 @@
 
 
 
-    <a href="{{ path('user_new') }}">Create new</a>
+    <a href="{{ path('user_new') }}"><button class="btn btn-danger">Devenir WildArtist</button></a>
 {% endblock %}

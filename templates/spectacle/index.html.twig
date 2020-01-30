@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Spectacles{% endblock %}
+
+{% block body %}
+    {% if spectacles is empty %}
+        <h3 class="title text-center mt-5">Pas de wildArtist enregistré</h3>
+    {% endif %}
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            {% for spectacle in spectacles %}
+
+                <div class="card  col-xl-5 col-md-6 mb-5 mt-5 mr-3 ml-3 p-3 ">
+                    <div class="card-body p-auto">
+                        <div class="card-header border-0">
+                            {% if spectacle.photo is defined %}<div class="text-center">
+                                <img style="max-width: 240px; border: solid; border-radius: 10%; padding: 5px" alt = "logo" src=" {{ spectacle.photo }}"></div>
+                            {% endif %}
+                        </div>
+                        <p class="typo"><b>Date :</b>{{ spectacle.date ? spectacle.date|date('Y-m-d H:i:s') : '' }}</p>
+                        <p class="typo"><b>Titre :</b>{{ spectacle.title }}</p>
+                        <p class="typo"><b>Description : </b>{{ spectacle.description }}</p>
+                        <p class="typo"><b>Département : </b>{{ spectacle.departement }}</p>
+                        <p class="typo"><b>Prix : </b>{{ spectacle.price }}</p>
+                        <p class="typo"><b>Nombre maximum de spectateur : </b>{{ spectacle.nbspectator }}</p>
+                        <p class="typo"><b>Nombre de places restantes : </b>{{ spectacle.nbspectator - spectacle.countspectateur}} </p>
+
+                    </div>
+                    <a href="{{ path('spectacle_show', {'id': spectacle.id}) }}"><button class="btn mb-2 btn-danger">Voir</button></a>
+                    <a href="{{ path('spectacle_edit', {'id': spectacle.id}) }}"><button class="btn mb-2 btn-danger">Edition</button></a>
+                    {% if spectacle.nbspectator <= spectacle.countspectateur%}
+                    <p>Le nombre maximal de spectateur a été atteind</p>{% else %}
+                    <a href="{{ path('spectateur_new', {'id': spectacle.id}) }}"><button class="btn mb-2 btn-info">S'inscrire au spectacle</button></a>
+                    {% endif %}
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+    <a href="{{ path('spectacle_new') }}"><button class="btn btn-danger">Créer nouveau spectacle</button></a>
+{% endblock %}

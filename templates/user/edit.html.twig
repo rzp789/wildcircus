@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-    <h1>Edit User</h1>
+
 
     {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 

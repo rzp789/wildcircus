@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spectateur{% endblock %}
+
+{% block body %}
+    <h1>Spectateur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ spectateur.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ spectateur.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('spectateur_index') }}">back to list</a>
+
+    <a href="{{ path('spectateur_edit', {'id': spectateur.id}) }}">edit</a>
+
+    {{ include('spectateur/_delete_form.html.twig') }}
+{% endblock %}
