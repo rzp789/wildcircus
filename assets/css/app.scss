@@ -6,6 +6,7 @@ $blue : #5eabed;
 $brick : #afff6d;
 
 body {
+
     background:
             linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
             linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
@@ -17,9 +18,15 @@ body {
 .typo {
     font-family: 'Indie Flower', cursive;
     font-size: 40px;
-
 }
-
+.typa {
+    font-family: 'Indie Flower', cursive;
+    font-size: 80px;
+}
+.zob{
+    padding-top: 100px;
+    padding-left:90px;
+}
 //cercle
 #warped {position: relative; display: block; width:870pt; height:538pt;}
 

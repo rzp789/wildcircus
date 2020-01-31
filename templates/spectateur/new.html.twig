@@ -4,9 +4,9 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-    <h1>Create new Spectateur</h1>
+    <h1 class="typo">Devenir Spectateur</h1>
 
     {{ include('spectateur/_form.html.twig') }}
 
-    <a href="{{ path('spectateur_index') }}">back to list</a>
+    <button class="btn btn-dark ml-5"><a href="{{ path('spectateur_index') }}">Retour</a></button>
 {% endblock %}
