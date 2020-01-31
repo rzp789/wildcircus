@@ -29,7 +29,7 @@
                     <a href="{{ path('spectacle_show', {'id': spectacle.id}) }}"><button class="btn mb-2 btn-danger">Voir</button></a>
                     <a href="{{ path('spectacle_edit', {'id': spectacle.id}) }}"><button class="btn mb-2 btn-danger">Edition</button></a>
                     {% if spectacle.nbspectator <= spectacle.countspectateur%}
-                    <p>Le nombre maximal de spectateur a été atteind</p>{% else %}
+                        <p class="typo" style="color:darkred"><b>(Le nombre maximal de spectateur a été atteind)</b></p>{% else %}
                     <a href="{{ path('spectateur_new', {'id': spectacle.id}) }}"><button class="btn mb-2 btn-info">S'inscrire au spectacle</button></a>
                     {% endif %}
                 </div>
@@ -41,5 +41,5 @@
 
 
 
-    <a href="{{ path('spectacle_new') }}"><button class="btn btn-danger">Créer nouveau spectacle</button></a>
+    <a href="{{ path('spectacle_new') }}"><button class="btn btn-danger mb-5 ml-5">Créer nouveau spectacle</button></a>
 {% endblock %}

@@ -56,21 +56,17 @@ class SpectateurController extends AbstractController
                     $mails[]=$spectateur->getEmail();
                 }
 
-
-
-
-                $message = (new \Swift_Message('Hello Email'))
+                $message = (new \Swift_Message('Reservation WildCircus'))
                     ->setFrom('adrzp789@gmail.com')
                     ->setTo($mails)
                     ->setBody(
                         $this->renderView(
                         // templates/emails/registration.html.twig
-                            'emails/registration.html.twig'
+                            'emails/registration.html.twig',['date'=> $spectacle->getDate()]
 
                         ),
                         'text/html'
                     )
-
                 ;
 
                 $mailer->send($message);
@@ -79,7 +75,7 @@ class SpectateurController extends AbstractController
 
             }
 
-            return $this->redirectToRoute('spectateur_index');
+            return $this->redirectToRoute('index');
         }
 
 
